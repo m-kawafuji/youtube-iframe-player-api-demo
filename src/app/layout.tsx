@@ -2,7 +2,7 @@ import { YouTubeProvider } from "@/providers/YouTubeProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YouTube Player API",
+  title: "YouTube IFrame Player API",
 };
 
 export default function RootLayout({
