@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 
 declare global {
   interface Window {
-    onYouTubeIframeAPIReady: () => void;
+    onYouTubeIframeAPIReady(): void;
   }
 }
 
