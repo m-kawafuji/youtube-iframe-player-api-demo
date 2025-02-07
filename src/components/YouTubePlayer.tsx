@@ -14,20 +14,17 @@ export default function YouTubePlayer({
   options: YT.PlayerOptions;
 }) {
   const { isApiReady } = use(YouTubeContext);
-  const youtubePlayerRef = useRef<YT.Player | null>(null);
-  const replacedElementRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<YT.Player | null>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isApiReady) return;
-    if (!replacedElementRef.current) return;
+    if (!elementRef.current) return;
 
-    youtubePlayerRef.current = new YT.Player(
-      replacedElementRef.current,
-      options,
-    );
+    playerRef.current = new YT.Player(elementRef.current, options);
 
     return () => {
-      youtubePlayerRef.current?.destroy();
+      playerRef.current?.destroy();
     };
   }, [isApiReady, options]);
 
@@ -36,15 +33,15 @@ export default function YouTubePlayer({
     () => {
       return {
         playVideo() {
-          youtubePlayerRef.current?.playVideo();
+          playerRef.current?.playVideo();
         },
         pauseVideo() {
-          youtubePlayerRef.current?.pauseVideo();
+          playerRef.current?.pauseVideo();
         },
       };
     },
     [],
   );
 
-  return <div ref={replacedElementRef} />;
+  return <div ref={elementRef} />;
 }

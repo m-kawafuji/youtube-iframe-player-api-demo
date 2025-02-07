@@ -4,29 +4,22 @@ import YouTubePlayer from "@/components/YouTubePlayer";
 import { useRef } from "react";
 
 export default function Home() {
-  const youtubePlayerRef =
-    useRef<React.ComponentRef<typeof YouTubePlayer>>(null);
+  const playerRef = useRef<React.ComponentRef<typeof YouTubePlayer>>(null);
 
   return (
     <main>
       <h1>YouTube IFrame Player API</h1>
       <YouTubePlayer
-        ref={youtubePlayerRef}
+        ref={playerRef}
         options={{
           videoId: "T_WSXXPQYeY",
           playerVars: { origin: "http://localhost:3000" },
         }}
       />
-      <button
-        type="button"
-        onClick={() => youtubePlayerRef.current?.playVideo()}
-      >
+      <button type="button" onClick={() => playerRef.current?.playVideo()}>
         Play
       </button>
-      <button
-        type="button"
-        onClick={() => youtubePlayerRef.current?.pauseVideo()}
-      >
+      <button type="button" onClick={() => playerRef.current?.pauseVideo()}>
         Pause
       </button>
     </main>
