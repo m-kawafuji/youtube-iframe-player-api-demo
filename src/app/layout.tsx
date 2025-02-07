@@ -1,5 +1,5 @@
-import { YouTubeProvider } from "@/providers/YouTubeProvider";
 import type { Metadata } from "next";
+import { YouTubeProvider } from "@/providers/YouTubeProvider";
 
 export const metadata: Metadata = {
   title: "YouTube IFrame Player API",

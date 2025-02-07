@@ -1,5 +1,5 @@
-import { YouTubeContext } from "@/providers/YouTubeProvider";
 import { use, useEffect, useImperativeHandle, useRef } from "react";
+import { YouTubeContext } from "@/providers/YouTubeProvider";
 
 interface YouTubePlayer {
   playVideo(): void;

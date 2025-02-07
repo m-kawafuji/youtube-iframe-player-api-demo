@@ -1,7 +1,7 @@
 "use client";
 
-import YouTubePlayer from "@/components/YouTubePlayer";
 import { useRef } from "react";
+import YouTubePlayer from "@/components/YouTubePlayer";
 
 export default function Home() {
   const playerRef = useRef<React.ComponentRef<typeof YouTubePlayer>>(null);
