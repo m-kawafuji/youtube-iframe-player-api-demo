@@ -13,21 +13,19 @@ export const YouTubeContext = createContext({
 });
 
 export function YouTubeProvider({ children }: { children: React.ReactNode }) {
+  const [isMounted, setIsMounted] = useState(false);
   const [isApiReady, setIsApiReady] = useState(false);
-  const [isApiReadyEventDefined, setIsApiReadyEventDefined] = useState(false);
 
   useEffect(() => {
     window.onYouTubeIframeAPIReady = () => {
       setIsApiReady(true);
     };
-    setIsApiReadyEventDefined(true);
+    setIsMounted(true);
   }, []);
 
   return (
     <YouTubeContext value={{ isApiReady }}>
-      {isApiReadyEventDefined && (
-        <script src="https://www.youtube.com/iframe_api" async />
-      )}
+      {isMounted && <script src="https://www.youtube.com/iframe_api" async />}
       {children}
     </YouTubeContext>
   );
